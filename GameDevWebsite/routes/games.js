@@ -1,18 +1,35 @@
 const express = require('express');
 const router = express.Router();
+const db = require("./db");
 
-const FakeGame = [
-    {
-        id: 1,
-        title: 'Sunny Side Down',
-        desc: 'Egg Clicker',
-        image_path: '/assets/sunny.png',
-        download_link: 'youtube.com'
+
+router.get('/', async (req, res) => {
+    try {
+        const [rows] = await db.query("SELECT * FROM games");
+        res.json(rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Database Error");
     }
-];
+})
 
-router.get('/',(req, res) => {
-    res.json(FakeGame);
+
+router.post("/", async (req, res) => {
+    const { name, description, download_url, cover_image } = req.body;
+
+    try {
+        const [result] = await db.query(
+            "INSERT INTO games(name, description, download_url, cover_image) VALUES (?, ?, ?, ?)",
+            [name, description, download_url, cover_image]
+        );
+
+        res.status(201).json({ message: "Game added", id: result.insertId });
+    } catch (err) {
+        console.error("Insertion Failed", err);
+        res.status(500).send("Internal Server Error");
+    }
+
+
 })
 
 module.exports = router;

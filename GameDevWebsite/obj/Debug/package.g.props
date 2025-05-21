@@ -6,10 +6,13 @@
     <PackageJsonPrivate Condition="$(PackageJsonPrivate) == ''">true</PackageJsonPrivate>
     <PackageJsonScriptsStart Condition="$(PackageJsonScriptsStart) == ''">node ./bin/www</PackageJsonScriptsStart>
     <PackageJsonDependenciesCookieParser Condition="$(PackageJsonDependenciesCookieParser) == ''">~1.4.4</PackageJsonDependenciesCookieParser>
+    <PackageJsonDependenciesCors Condition="$(PackageJsonDependenciesCors) == ''">^2.8.5</PackageJsonDependenciesCors>
     <PackageJsonDependenciesDebug Condition="$(PackageJsonDependenciesDebug) == ''">~2.6.9</PackageJsonDependenciesDebug>
-    <PackageJsonDependenciesExpress Condition="$(PackageJsonDependenciesExpress) == ''">~4.16.1</PackageJsonDependenciesExpress>
+    <PackageJsonDependenciesExpress Condition="$(PackageJsonDependenciesExpress) == ''">^4.21.2</PackageJsonDependenciesExpress>
     <PackageJsonDependenciesHttpErrors Condition="$(PackageJsonDependenciesHttpErrors) == ''">~1.6.3</PackageJsonDependenciesHttpErrors>
     <PackageJsonDependenciesMorgan Condition="$(PackageJsonDependenciesMorgan) == ''">~1.9.1</PackageJsonDependenciesMorgan>
-    <PackageJsonDependenciesPug Condition="$(PackageJsonDependenciesPug) == ''">2.0.0-beta11</PackageJsonDependenciesPug>
+    <PackageJsonDependenciesPug Condition="$(PackageJsonDependenciesPug) == ''">^3.0.3</PackageJsonDependenciesPug>
+    <PackageJsonDependenciesReactIcons Condition="$(PackageJsonDependenciesReactIcons) == ''">^5.5.0</PackageJsonDependenciesReactIcons>
+    <PackageJsonDependenciesReactRouterDom Condition="$(PackageJsonDependenciesReactRouterDom) == ''">^7.6.0</PackageJsonDependenciesReactRouterDom>
   </PropertyGroup>
 </Project>
