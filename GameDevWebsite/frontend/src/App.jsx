@@ -8,6 +8,7 @@ function App() {
         <Router>
             <nav
                 style={{
+                    position: "sticky",
                     padding: "0.2rem 1.5rem",          // ⬅ less top/bottom space, standard side padding
                     background: "#121212",
                     display: "flex",

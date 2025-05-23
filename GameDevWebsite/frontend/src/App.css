@@ -1,4 +1,4 @@
-.logo {
+﻿.logo {
     height: 2.3em; 
     margin-right: 0.8rem; 
     margin-left: 0;
@@ -46,6 +46,7 @@
     color: white;
     font-weight: bold;
     pointer-events: none;
+    filter: drop-shadow(0 0 5px white);
 }
 
 .card {
@@ -55,3 +56,6 @@
 .read-the-docs {
   color: #888;
 }
+
+
+
