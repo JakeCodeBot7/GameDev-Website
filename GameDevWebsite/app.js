@@ -1,4 +1,4 @@
-var createError = require('http-errors');
+﻿var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -25,6 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/games', gamesRouter);
+console.log('ROUTES ➜', app._router.stack
+    .filter(l => l.route)        // only real routes
+    .map(l => l.route.path));    // just show their paths
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

@@ -2,6 +2,7 @@
 import Home from "./pages/Home";
 import Games from "./pages/Games";
 import logo from "./assets/logo.png";
+import GameDetails from "./pages/GameDetails";
 import "./App.css"
 function App() {
     return (
@@ -28,6 +29,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/games" element={<Games />} />
+                <Route path="/games/:id" element={<GameDetails />} />
             </Routes>
         </Router>
     );

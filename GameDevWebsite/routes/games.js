@@ -1,6 +1,7 @@
-const express = require('express');
+﻿const express = require('express');
 const router = express.Router();
 const db = require("./db");
+console.log('🎮 games.js LOADED');
 
 
 router.get('/', async (req, res) => {
@@ -14,7 +15,28 @@ router.get('/', async (req, res) => {
 })
 
 
-router.post("/", async (req, res) => {
+router.get('/:id', async (req, res) => {
+    const id = Number.parseInt(req.params.id, 10);
+
+    try {
+        const [rows] = await db.query(
+            'SELECT * FROM games WHERE id = ?', [id]
+        );
+
+        if (rows.length === 0) {
+            return res.status(404).send('Game not Found!');
+        }
+        res.json(rows[0]);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Database Error');
+    }
+});
+
+
+
+
+/*router.post("/", async (req, res) => {
     const { name, description, download_url, cover_image } = req.body;
 
     try {
@@ -30,6 +52,6 @@ router.post("/", async (req, res) => {
     }
 
 
-})
+}) */
 
 module.exports = router;
